@@ -1,0 +1,33 @@
+import os
+from dotenv import load_dotenv
+import discord
+from discord.ext import commands
+load_dotenv()
+
+# Set up the Discord bot
+intents = discord.Intents.all()
+intents.typing = False
+intents.presences = False
+
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+# Start the bot
+@bot.event
+async def on_ready():
+    print(f"We have logged in as {bot.user}")
+
+# Basic chat command
+@bot.command()
+async def chat(ctx, *, message):
+    await ctx.send("Thinking...")
+
+    #########################################################
+    # AGENT GOES HERE - REPLACE RESPONSE WITH OUTPUT
+    response = "hello world"
+    #########################################################
+    
+    await ctx.send(response)
+
+
+# Run the bot
+bot.run(os.getenv("DISCORD_BOT_TOKEN"))
