@@ -1,6 +1,5 @@
 import os
 import discord
-import gloria
 from datetime import datetime, timedelta
 from typing import List
 from termcolor import colored
@@ -59,9 +58,6 @@ tommie = GenerativeAgent(name="Occult Master",
               memory=tommies_memory
              )
 
-
-# The current "Summary" of a character can't be made because the agent hasn't made
-# any observations yet.
 print(tommie.get_summary())
 
 # We can add memories directly to the memory object
@@ -79,7 +75,7 @@ for observation in tommie_observations:
 
 # Now that Tommie has 'memories', their self-summary is more descriptive, though still rudimentary.
 # We will see how this summary updates after more observations to create a more rich description.
-print(tommie.get_summary(force_refresh=True))
+# print(tommie.get_summary(force_refresh=True))
 
 def interview_agent(agent: GenerativeAgent, message: str) -> str:
     """Help the notebook user interact with the agent."""
