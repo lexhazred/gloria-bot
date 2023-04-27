@@ -79,7 +79,7 @@ for observation in tommie_observations:
 
 def interview_agent(agent: GenerativeAgent, message: str) -> str:
     """Help the notebook user interact with the agent."""
-    new_message = f"{USER_NAME} says {message}"
+    new_message = f"{message}"
     return agent.generate_dialogue_response(new_message)[1]
 
 
@@ -97,14 +97,14 @@ async def on_ready():
 
 # Basic chat command
 @bot.command()
-async def chat(ctx, *, message):
+async def summon(ctx, *, message):
     await ctx.send("Thinking...")
 
     #########################################################
     # AGENT GOES HERE - REPLACE RESPONSE WITH OUTPUT
     response = interview_agent(tommie, message)
     #########################################################
-    
+
     await ctx.send(response)
 
 
